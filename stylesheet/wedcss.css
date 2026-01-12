@@ -1,0 +1,322 @@
+/* -------------------- Design Tokens -------------------- */
+:root {
+    --color-bg: hsl(60, 64%, 77%);
+    --color-surface: #f1e0b9;
+    --color-accent: #8fbb80;
+    --color-accent-dark: rgb(88, 137, 71);
+    --color-text: #2f2f2f;
+    --color-white: #ffffff;
+
+    --font-script-1: 'Cookie', cursive;
+    --font-script-2: 'Rouge Script', cursive;
+
+    --radius-lg: 1rem;
+    --radius-md: .5rem;
+
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, .12);
+    --max-width: 1200px;
+}
+
+/* -------------------- Global Reset -------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* -------------------- Navigation (Desktop) -------------------- */
+.lsize-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1rem;
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+}
+
+.lsize-nav li a {
+    font-weight: 600;
+}
+
+/* -------------------- Mobile Overlay Menu -------------------- */
+.menu {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 101;
+    background: var(--color-accent-dark);
+    color: white;
+    padding: .5rem .75rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .95);
+    transform: translateX(-100%);
+    transition: transform .4s ease;
+    z-index: 200;
+}
+
+.overlay.open {
+    transform: translateX(0);
+}
+
+.overlay-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.overlay-content a {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.closebtn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    color: white;
+}
+
+/* -------------------- Layout Container -------------------- */
+.mainContainer {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+/* -------------------- Hero Section -------------------- */
+.head {
+    padding: 4rem 1rem 2rem;
+    text-align: center;
+}
+
+#home p {
+    font-family: var(--font-script-1);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: .25rem 0;
+}
+
+#invText p {
+    font-size: 1rem;
+}
+
+#btnRsvp {
+    margin-top: 1rem;
+    padding: .75rem 1.25rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--color-accent-dark);
+    color: white;
+    cursor: pointer;
+}
+
+/* -------------------- Timer Section -------------------- */
+.wedtimer {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.img1 img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.countTimer {
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+}
+
+.textTitle {
+    font-family: var(--font-script-2);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* -------------------- Video Section -------------------- */
+.wedvideo {
+    margin-top: 3rem;
+}
+
+.wedvideo video {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+/* -------------------- Our Story / Timeline -------------------- */
+.OurStory {
+    margin-top: 5rem;
+}
+
+#storyTitle {
+    text-align: center;
+    font-family: var(--font-script-2);
+    font-size: 3rem;
+}
+
+.timeline {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.timeline__event {
+    display: grid;
+    gap: 1rem;
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline__event__icon {
+    font-weight: 700;
+}
+
+.timeline__event__date img {
+    border-radius: var(--radius-md);
+}
+
+/* -------------------- Church & Event -------------------- */
+.wedevent {
+    margin-top: 5rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.imgev {
+    text-align: center;
+}
+
+#textevent {
+    margin: .5rem 0 1rem;
+}
+
+#map {
+    padding: .5rem 1rem;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    border: none;
+}
+
+/* -------------------- Carousel -------------------- */
+.section {
+    margin-top: 4rem;
+}
+
+.carousel {
+    overflow: hidden;
+}
+
+.gallery {
+    display: flex;
+    gap: 1rem;
+}
+
+.card img {
+    border-radius: var(--radius-lg);
+}
+
+/* -------------------- Attire / Gift / Footer -------------------- */
+.colorpallet,
+.gift,
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.contactus {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.hastag i {
+    color: crimson;
+}
+
+/* -------------------- Animations (Safe) -------------------- */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: none;
+}
+
+.fade-left {
+    transform: translateX(-30px);
+}
+
+.fade-right {
+    transform: translateX(30px);
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+    .lsize-nav {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .wedtimer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+        {
+        animation: none !important;
+        transition: none !important;
+    }
+}
